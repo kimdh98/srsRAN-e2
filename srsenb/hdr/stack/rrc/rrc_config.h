@@ -64,6 +64,10 @@ struct rrc_endc_cfg_t {
   ssb_rs_cfg::subcarrier_spacing_ssb_r15_e_ ssb_ssc;
 };
 
+#ifdef ENABLE_RIC_AGENT_KPM
+#define MAX_NOF_QCI 10
+#endif
+
 struct rrc_cfg_t {
   uint32_t enb_id; ///< Required to pack SIB1
   // Per eNB SIBs

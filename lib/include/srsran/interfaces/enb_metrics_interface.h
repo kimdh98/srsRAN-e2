@@ -30,6 +30,9 @@
 #include "srsenb/hdr/stack/rrc/rrc_metrics.h"
 #include "srsenb/hdr/stack/s1ap/s1ap_metrics.h"
 #include "srsran/common/metrics_hub.h"
+#ifdef ENABLE_RIC_AGENT_KPM
+#include "srsenb/hdr/stack/upper/pdcp_metrics_kpi.h"
+#endif
 #include "srsran/radio/radio_metrics.h"
 #include "srsran/rlc/rlc_metrics.h"
 #include "srsran/system/sys_metrics.h"
@@ -51,6 +54,9 @@ struct stack_metrics_t {
   rrc_metrics_t  rrc;
   rlc_metrics_t  rlc;
   pdcp_metrics_t pdcp;
+  #ifdef ENABLE_RIC_AGENT_KPM
+  pdcp_metrics_kpm_t pdcp_kpm;
+  #endif
   s1ap_metrics_t s1ap;
 };
 
